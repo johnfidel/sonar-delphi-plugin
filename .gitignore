@@ -1,0 +1,10 @@
+.classpath
+.gitignore
+.project
+
+node/
+node_modules/
+scripts/
+conf/
+.settings/
+target/
