@@ -24,15 +24,15 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.sonar.api.config.Configuration;
 import org.sonar.api.resources.AbstractLanguage;
-import org.sonarsource.plugins.example.settings.FooLanguageProperties;
+import org.sonarsource.plugins.delphi.settings.DelphiLanguageProperties;
 
 /**
  * This class defines the fictive Foo language.
  */
 public final class DelphiLanguage extends AbstractLanguage {
 
-  public static final String NAME = "Foo";
-  public static final String KEY = "foo";
+  public static final String NAME = "Delphi";
+  public static final String KEY = "delphi";
 
   private final Configuration config;
 
@@ -43,9 +43,9 @@ public final class DelphiLanguage extends AbstractLanguage {
 
   @Override
   public String[] getFileSuffixes() {
-    String[] suffixes = filterEmptyStrings(config.getStringArray(FooLanguageProperties.FILE_SUFFIXES_KEY));
+    String[] suffixes = filterEmptyStrings(config.getStringArray(DelphiLanguageProperties.FILE_SUFFIXES_KEY));
     if (suffixes.length == 0) {
-      suffixes = StringUtils.split(FooLanguageProperties.FILE_SUFFIXES_DEFAULT_VALUE, ",");
+      suffixes = StringUtils.split(DelphiLanguageProperties.FILE_SUFFIXES_DEFAULT_VALUE, ",");
     }
     return suffixes;
   }

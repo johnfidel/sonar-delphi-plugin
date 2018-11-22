@@ -10,23 +10,23 @@ public class DelphiPluginPageDefinition implements PageDefinition {
   @Override
   public void define(Context context) {
     context
-      .addPage(Page.builder("example/custom_page_4_project")
+      .addPage(Page.builder("Delphi/custom_page_4_project")
         .setName("Custom Project Page (Pure JS)")
         .setScope(Scope.COMPONENT).build())
-      .addPage(Page.builder("example/measures_history")
+      .addPage(Page.builder("Delphi/measures_history")
         .setName("Custom Project Page using ReactJS")
         .setScope(Scope.COMPONENT).build())
 
-      .addPage(Page.builder("example/custom_page_4_admin")
+      .addPage(Page.builder("Delphi/custom_page_4_admin")
         .setName("Custom Admin Page")
         .setScope(Scope.GLOBAL)
         .setAdmin(Boolean.TRUE).build())
-      .addPage(Page.builder("example/sanity_check")
+      .addPage(Page.builder("Delphi/sanity_check")
         .setName("Custom Admin Page Sanity Check")
         .setScope(Scope.GLOBAL)
         .setAdmin(Boolean.TRUE).build())
 
-      .addPage(Page.builder("example/custom_page_global")
+      .addPage(Page.builder("Delphi/custom_page_global")
         .setName("Custom Global Page")
         .setScope(Scope.GLOBAL).build());
   }

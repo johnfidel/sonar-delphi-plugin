@@ -21,7 +21,7 @@ package org.sonarsource.plugins.delphi.languages;
 
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 
-import static org.sonarsource.plugins.example.rules.FooLintRulesDefinition.REPO_KEY;
+import static org.sonarsource.plugins.delphi.rules.DelphiLintRulesDefinition.REPO_KEY;
 
 /**
  * Default, BuiltIn Quality Profile for the projects having files of the language "foo"
@@ -30,7 +30,7 @@ public final class DelphiQualityProfile implements BuiltInQualityProfilesDefinit
 
   @Override
   public void define(Context context) {
-    NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("FooLint Rules", DelphiLanguage.KEY);
+    NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("DelphiLint Rules", DelphiLanguage.KEY);
     profile.setDefault(true);
 
     NewBuiltInActiveRule rule1 = profile.activateRule(REPO_KEY, "ExampleRule1");

@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.sonarsource.plugins.example</groupId>
-  <artifactId>sonar-example-plugin</artifactId>
+  <groupId>org.sonarsource.plugins.delphi</groupId>
+  <artifactId>sonar-delphi-plugin</artifactId>
   <packaging>sonar-plugin</packaging>
   <version>6.7.1</version>
 
-  <name>Example Plugin for SonarQube 6.7.x LTS</name>
-  <description>Example of Plugin for SonarQube: Foo Language, FooLint, Custom Metrics and MeasureComputers</description>
+  <name>Delphi Plugin for SonarQube 6.7.x LTS</name>
+  <description>Plugin for SonarQube: Delphi Language, DelphiLint, Custom Metrics and MeasureComputers</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,7 +55,7 @@
         <version>1.18.0.372</version>
         <extensions>true</extensions>
         <configuration>
-          <pluginKey>example</pluginKey>
+          <pluginKey>Delphi</pluginKey>
           <pluginClass>org.sonarsource.plugins.delphi.DelphiPlugin</pluginClass>
         </configuration>
       </plugin>

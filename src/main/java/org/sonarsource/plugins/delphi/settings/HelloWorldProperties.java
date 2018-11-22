@@ -26,7 +26,7 @@ import static java.util.Arrays.asList;
 
 public class HelloWorldProperties {
 
-  public static final String HELLO_KEY = "sonar.example.hello";
+  public static final String HELLO_KEY = "sonar.Delphi.hello";
   public static final String CATEGORY = "Properties Example";
 
   private HelloWorldProperties() {

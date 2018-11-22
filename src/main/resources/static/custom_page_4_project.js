@@ -1,4 +1,4 @@
-window.registerExtension('example/custom_page_4_project', function (options) {
+window.registerExtension('delphi/custom_page_4_project', function (options) {
 
   // let's create a flag telling if the page is still displayed
   var isDisplayed = true;

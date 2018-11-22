@@ -35,7 +35,7 @@ import org.sonar.api.config.Configuration;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
-import org.sonarsource.plugins.example.languages.FooLanguage;
+import org.sonarsource.plugins.delphi.languages.DelphiLanguage;
 
 /**
  * The goal of this Sensor is to load the results of an analysis performed by a fictive external tool named: FooLint
@@ -46,7 +46,7 @@ public class DelphiLintIssuesLoaderSensor implements Sensor {
 
   private static final Logger LOGGER = Loggers.get(DelphiLintIssuesLoaderSensor.class);
 
-  protected static final String REPORT_PATH_KEY = "sonar.foolint.reportPath";
+  protected static final String REPORT_PATH_KEY = "sonar.delphilint.reportPath";
 
   protected final Configuration config;
   protected final FileSystem fileSystem;
@@ -63,7 +63,7 @@ public class DelphiLintIssuesLoaderSensor implements Sensor {
   @Override
   public void describe(final SensorDescriptor descriptor) {
     descriptor.name("FooLint Issues Loader Sensor");
-    descriptor.onlyOnLanguage(FooLanguage.KEY);
+    descriptor.onlyOnLanguage(DelphiLanguage.KEY);
   }
 
   protected String reportPathKey() {
