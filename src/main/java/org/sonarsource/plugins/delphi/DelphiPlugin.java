@@ -35,7 +35,7 @@ import org.sonarsource.plugins.delphi.rules.DelphiLintRulesDefinition;
 import org.sonarsource.plugins.delphi.rules.JavaRulesDefinition;
 import org.sonarsource.plugins.delphi.settings.DelphiLanguageProperties;
 import org.sonarsource.plugins.delphi.settings.HelloWorldProperties;
-import org.sonarsource.plugins.delphi.settings.SayHelloFromScanner;
+import org.sonarsource.plugins.delphi.measures.DelphiLocSensor;
 import org.sonarsource.plugins.delphi.web.DelphiPluginPageDefinition;
 
 import static java.util.Arrays.asList;
@@ -66,10 +66,10 @@ public class DelphiPlugin implements Plugin {
     // tutorial on settings
     context
       .addExtensions(HelloWorldProperties.getProperties())
-      .addExtension(SayHelloFromScanner.class);
+      .addExtension(DelphiLocSensor.class);
 
     // tutorial on web extensions
-    context.addExtension(DelphiPluginPageDefinition.class);
+    context.addExtension(DelphiPluginPageDefinition.class);    
 
     context.addExtensions(asList(
       PropertyDefinition.builder("sonar.delphi.file.suffixes")

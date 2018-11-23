@@ -40,7 +40,7 @@ public class DelphiMetrics implements Metrics {
     .setDirection(Metric.DIRECTION_BETTER)
     .setQualitative(true)
     .setDomain(CoreMetrics.DOMAIN_GENERAL)
-    .create();
+    .create();  
 
   @Override
   public List<Metric> getMetrics() {
