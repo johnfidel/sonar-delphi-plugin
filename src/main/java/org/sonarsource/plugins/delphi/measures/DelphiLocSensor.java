@@ -21,6 +21,9 @@ package org.sonarsource.plugins.delphi.measures;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.stream.Stream;
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 
@@ -32,7 +35,31 @@ import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.utils.log.Loggers;
 import org.sonar.api.measures.CoreMetrics;
 
+import org.sonarsource.plugins.delphi.languages.scanner.DelphiScanner;
+
 public class DelphiLocSensor implements Sensor {
+
+  public static boolean IsEmptyLine(String line) {
+    boolean empty = true;
+    for (char c : line.toCharArray()) {
+      empty &= (c == ' ');
+      if (!empty)
+        break;
+    }
+    return empty;
+  }
+
+  public static Integer CountLines(ArrayList<String> lines) {
+
+    Integer LineCount = 0;
+
+    for (String line : lines) {
+      if ((!line.startsWith("/", 0)) & (!IsEmptyLine(line))) {
+        LineCount++;
+      }
+    }
+    return LineCount;
+  }
 
   @Override
   public void describe(SensorDescriptor descriptor) {
@@ -43,38 +70,36 @@ public class DelphiLocSensor implements Sensor {
   public void execute(SensorContext context) {
     FileSystem fs = context.fileSystem();
     Iterable<InputFile> delphiFiles = fs.inputFiles(fs.predicates().hasLanguage("delphi"));
-    for (InputFile delphiFile : delphiFiles) {           
-      Loggers.get(getClass()).info("Found Delphi file:" + delphiFile.filename());    
+
+    // DelphiScanner scanner = new DelphiScanner(delphiFiles);
+
+    for (InputFile delphiFile : delphiFiles) {
+      Loggers.get(getClass()).info("Found Delphi file:" + delphiFile.filename());
 
       try {
         BufferedReader reader;
+        ArrayList<String> lines = new ArrayList<>();
         try {
           reader = new BufferedReader(new FileReader(delphiFile.filename()));
-        
+
           String line;
           line = reader.readLine();
-              
-          Integer LineCount = 0;
           while (line != null) {
-            LineCount++;
+            lines.add(line);
             line = reader.readLine();
           }
           reader.close();
-  
-          context.<Integer>newMeasure()
-            .forMetric(CoreMetrics.NCLOC)
-            .on(delphiFile)
-            .withValue(LineCount)
-            .save();
+
+          Integer linecount = CountLines(lines);
+          context.<Integer>newMeasure().forMetric(CoreMetrics.NCLOC).on(delphiFile).withValue(linecount).save();
 
         } catch (FileNotFoundException e) {
           // TODO Auto-generated catch block
-          e.printStackTrace();        
+          e.printStackTrace();
         }
-      }
-      catch (IOException e) {
+      } catch (IOException e) {
         e.printStackTrace();
-      }      
+      }
     }
   }
 
