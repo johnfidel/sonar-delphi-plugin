@@ -35,7 +35,7 @@ import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.utils.log.Loggers;
 import org.sonar.api.measures.CoreMetrics;
 
-import org.sonarsource.plugins.delphi.languages.scanner.DelphiScanner;
+//import org.sonarsource.plugins.delphi.languages.scanner.DelphiScanner;
 
 public class DelphiLocSensor implements Sensor {
 
